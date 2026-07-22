@@ -1,0 +1,20 @@
+PlatformIO Core: 6.1.18
+Platform: Espressif 32 7.0.1
+Framework: Arduino-ESP32 2.0.17
+Board: m5stack-cores3
+M5GFX: 0.2.22
+M5Unified: 0.2.17
+
+cores3_usb_host: SUCCESS
+RAM: 22304 / 327680 bytes (6.8%)
+Flash: 487953 / 6553600 bytes (7.4%)
+
+Merged image layout:
+0x0000 bootloader.bin
+0x8000 partitions.bin
+0xe000 boot_app0.bin
+0x10000 firmware.bin
+
+Merge settings: --flash_mode dio --flash_freq 80m --flash_size 16MB
+Artifact SHA256: ed5965c986f101bc12225afa15ec498572b78aced1cf8246e6cb1804e3482442
+Artifact size: 553856 bytes

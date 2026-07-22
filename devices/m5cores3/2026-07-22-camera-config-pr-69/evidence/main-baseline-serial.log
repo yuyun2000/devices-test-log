@@ -1,0 +1,6 @@
+PR69_INIT variant=main_baseline init=1 config_pointer=1
+PR69_FRAME index=0 width=320 height=240 format=0 len=153600 fnv1a=72674415 shape=1
+PR69_FRAME index=1 width=320 height=240 format=0 len=153600 fnv1a=1AD2C8DD shape=1
+PR69_FRAME index=2 width=320 height=240 format=0 len=153600 fnv1a=0E1F98BC shape=1
+PR69_FRAME index=3 width=320 height=240 format=0 len=153600 fnv1a=C78E1CBC shape=1
+PR69_RESULT variant=main_baseline status=PASS frames=4 expected=320x240 format=0

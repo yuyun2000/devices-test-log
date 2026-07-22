@@ -1,0 +1,49 @@
+{
+  "redaction": "Internal endpoint, test-slot ID, network address, local server path, and device identifiers omitted",
+  "failed_packaging_probe": {
+    "task_id": "task-fd3ca5be893b435e",
+    "artifact_id": "fw-538ffc6e19064cb2",
+    "state": "failed",
+    "error_code": "serial_expect_timeout",
+    "serial_session_id": "ser-c4be9620875ad59e",
+    "serial_bytes": 408,
+    "serial_chunks": 2,
+    "serial_dropped": 0,
+    "observation": "Merged image used QIO header and reset in ROM loader before the application"
+  },
+  "executions": [
+    {
+      "variant": "main_baseline",
+      "task_id": "task-188debb33dbc42cd",
+      "artifact_id": "fw-bf1fe452b34c450d",
+      "serial_session_id": "ser-30236270baf0830e",
+      "state": "passed",
+      "serial_bytes": 469,
+      "serial_chunks": 3,
+      "serial_dropped": 0,
+      "serial_truncated": false
+    },
+    {
+      "variant": "pr69_default",
+      "task_id": "task-13e16b17a6954898",
+      "artifact_id": "fw-790b400cafd14cf0",
+      "serial_session_id": "ser-cfb7e208f9ee6070",
+      "state": "passed",
+      "serial_bytes": 467,
+      "serial_chunks": 3,
+      "serial_dropped": 0,
+      "serial_truncated": false
+    },
+    {
+      "variant": "pr69_custom",
+      "task_id": "task-e929d7d4e92e4d03",
+      "artifact_id": "fw-430bc7b46b2145db",
+      "serial_session_id": "ser-cd9a1e8f47a786ab",
+      "state": "passed",
+      "serial_bytes": 465,
+      "serial_chunks": 3,
+      "serial_dropped": 0,
+      "serial_truncated": false
+    }
+  ]
+}

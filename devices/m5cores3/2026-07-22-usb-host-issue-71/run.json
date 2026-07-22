@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "date": "2026-07-22",
+  "overall_status": "PARTIAL",
+  "source": {
+    "issue": "https://github.com/m5stack/M5CoreS3/issues/71",
+    "repository": "https://github.com/m5stack/M5CoreS3",
+    "base_commit": "adce2225e7fd8d012b148f46c990f8cc7b8ecc26"
+  },
+  "hardware": {
+    "host": "M5Stack device test center (internal endpoint and slot omitted)",
+    "device_under_test": "M5Stack CoreS3 / ESP32-S3",
+    "connection": "CoreS3 main USB connected upstream to the test center",
+    "otg_peripheral": "Not connected because the same physical port was occupied by the test center"
+  },
+  "firmware": {
+    "artifact_id": "fw-ccfbb6db17ef483e",
+    "sha256": "ed5965c986f101bc12225afa15ec498572b78aced1cf8246e6cb1804e3482442",
+    "size": 553856,
+    "flash_address": 0,
+    "flash_mode": "dio"
+  },
+  "execution": {
+    "test_center": "M5Stack device test center (internal endpoint omitted)",
+    "task_id": "task-aaa22e046f1d4238",
+    "task_state": "passed",
+    "serial_session_id": "ser-e08d571c73d06ce3",
+    "started_at": "2026-07-22T10:59:57.022Z",
+    "finished_at": "2026-07-22T11:00:52.918Z",
+    "serial_bytes": 103,
+    "serial_chunks": 2,
+    "serial_dropped": 0,
+    "serial_truncated": false
+  },
+  "checks": [
+    {
+      "name": "platformio_build",
+      "status": "PASS",
+      "evidence": "evidence/build-summary.txt"
+    },
+    {
+      "name": "firmware_flash_and_reboot",
+      "status": "PASS",
+      "evidence": "task-aaa22e046f1d4238"
+    },
+    {
+      "name": "upstream_usb_safety_gate",
+      "status": "PASS",
+      "evidence": "evidence/safe-wait-serial.log",
+      "observed": {
+        "upstream_vbus_mv": 5004,
+        "upstream_cdc": true,
+        "usb_output": false
+      }
+    },
+    {
+      "name": "usb_host_device_enumeration",
+      "status": "NOT RUN",
+      "reason": "Requires physical disconnect from the test center and connection of an OTG peripheral"
+    },
+    {
+      "name": "usb_descriptor_read",
+      "status": "NOT RUN",
+      "reason": "No OTG peripheral was connected"
+    },
+    {
+      "name": "screen_photo",
+      "status": "NOT RUN",
+      "reason": "Test-slot camera unavailable"
+    }
+  ]
+}

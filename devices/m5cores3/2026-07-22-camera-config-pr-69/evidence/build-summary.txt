@@ -1,0 +1,19 @@
+PlatformIO Core: 6.1.18
+Platform: Espressif 32 7.0.1
+Framework: Arduino-ESP32 2.0.17
+Board: m5stack-cores3
+M5GFX: 0.2.22
+M5Unified: 0.2.17
+
+main_baseline: SUCCESS, RAM 26592 / 327680 bytes (8.1%), Flash 501849 / 6553600 bytes (7.7%)
+pr69_default: SUCCESS, RAM 26592 / 327680 bytes (8.1%), Flash 501881 / 6553600 bytes (7.7%)
+pr69_custom: SUCCESS, RAM 26696 / 327680 bytes (8.1%), Flash 501937 / 6553600 bytes (7.7%)
+
+Merged image layout:
+0x0000 bootloader.bin
+0x8000 partitions.bin
+0xe000 boot_app0.bin
+0x10000 firmware.bin
+
+Merge settings: --flash_mode dio --flash_freq 80m --flash_size 16MB
+Result: all builds and merged-image validation passed.

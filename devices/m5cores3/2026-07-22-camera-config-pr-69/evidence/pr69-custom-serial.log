@@ -1,0 +1,6 @@
+PR69_INIT variant=pr69_custom init=1 config_pointer=1
+PR69_FRAME index=0 width=640 height=480 format=3 len=307200 fnv1a=12568475 shape=1
+PR69_FRAME index=1 width=640 height=480 format=3 len=307200 fnv1a=B4D2316D shape=1
+PR69_FRAME index=2 width=640 height=480 format=3 len=307200 fnv1a=D5E461F5 shape=1
+PR69_FRAME index=3 width=640 height=480 format=3 len=307200 fnv1a=B9153F26 shape=1
+PR69_RESULT variant=pr69_custom status=PASS frames=4 expected=640x480 format=3

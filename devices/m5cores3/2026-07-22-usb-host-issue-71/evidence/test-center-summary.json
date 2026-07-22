@@ -1,0 +1,25 @@
+{
+  "redaction": "Internal endpoint, test-slot ID, network address, local server path, and device identifiers omitted",
+  "initial_observability_probe": {
+    "task_id": "task-1aed36be2fe444a8",
+    "artifact_id": "fw-6a7add9777f148e6",
+    "state": "failed",
+    "error_code": "serial_expect_timeout",
+    "serial_session_id": "ser-889f62b32d4e47f9",
+    "serial_bytes": 0,
+    "serial_chunks": 0,
+    "serial_dropped": 0,
+    "interpretation": "No application evidence; not classified as a DUT failure"
+  },
+  "safety_execution": {
+    "task_id": "task-aaa22e046f1d4238",
+    "artifact_id": "fw-ccfbb6db17ef483e",
+    "serial_session_id": "ser-e08d571c73d06ce3",
+    "state": "passed",
+    "serial_bytes": 103,
+    "serial_chunks": 2,
+    "serial_dropped": 0,
+    "serial_truncated": false,
+    "matched": "ISSUE71_SAFE_WAIT"
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "date": "2026-07-22",
+  "overall_status": "PASS",
+  "source": {
+    "pull_request": "https://github.com/m5stack/M5CoreS3/pull/69",
+    "repository": "https://github.com/m5stack/M5CoreS3",
+    "base_commit": "bfeebde61965e1a7b6df1b7648d0b761e2f88642",
+    "pr_commit": "c728f1951888aafe57a225069fe71241f6532ff4",
+    "main_baseline_commit": "adce2225e7fd8d012b148f46c990f8cc7b8ecc26"
+  },
+  "hardware": {
+    "host": "M5Stack device test center (internal endpoint and slot omitted)",
+    "device_under_test": "M5Stack CoreS3 / ESP32-S3",
+    "connection": "CoreS3 main USB connected to test center",
+    "peripheral": "Built-in GC0308 camera"
+  },
+  "firmware": {
+    "flash_address": 0,
+    "flash_mode": "dio",
+    "variants": [
+      {
+        "name": "main_baseline",
+        "artifact_id": "fw-bf1fe452b34c450d",
+        "sha256": "141c5a7d0dc3913fda2bdbe1ad061e24ac56c4d8b6e9c2668a90c5494c47d730",
+        "size": 567824
+      },
+      {
+        "name": "pr69_default",
+        "artifact_id": "fw-790b400cafd14cf0",
+        "sha256": "e6fe10e7f31f68fe5c4cb5de7b406280aec1e0d5370a0ad681a69d3875529307",
+        "size": 567776
+      },
+      {
+        "name": "pr69_custom",
+        "artifact_id": "fw-430bc7b46b2145db",
+        "sha256": "0f5e0e25cfd512dec3185e111ed751a36a842843954f13ab068295f68d455d3e",
+        "size": 567840
+      }
+    ]
+  },
+  "execution": {
+    "test_center": "M5Stack device test center (internal endpoint omitted)",
+    "tasks": [
+      {
+        "variant": "main_baseline",
+        "task_id": "task-188debb33dbc42cd",
+        "task_state": "passed",
+        "serial_session_id": "ser-30236270baf0830e",
+        "started_at": "2026-07-22T10:51:29.607Z",
+        "finished_at": "2026-07-22T10:52:24.131Z"
+      },
+      {
+        "variant": "pr69_default",
+        "task_id": "task-13e16b17a6954898",
+        "task_state": "passed",
+        "serial_session_id": "ser-cfb7e208f9ee6070",
+        "started_at": "2026-07-22T10:52:46.054Z",
+        "finished_at": "2026-07-22T10:53:40.990Z"
+      },
+      {
+        "variant": "pr69_custom",
+        "task_id": "task-e929d7d4e92e4d03",
+        "task_state": "passed",
+        "serial_session_id": "ser-cd9a1e8f47a786ab",
+        "started_at": "2026-07-22T10:53:50.314Z",
+        "finished_at": "2026-07-22T10:54:45.106Z"
+      }
+    ]
+  },
+  "checks": [
+    {
+      "name": "platformio_build_all_variants",
+      "status": "PASS",
+      "evidence": "evidence/build-summary.txt"
+    },
+    {
+      "name": "main_baseline_capture",
+      "status": "PASS",
+      "evidence": "evidence/main-baseline-serial.log"
+    },
+    {
+      "name": "pr_default_api_compatibility",
+      "status": "PASS",
+      "evidence": "evidence/pr69-default-serial.log"
+    },
+    {
+      "name": "pr_custom_config_capture",
+      "status": "PASS",
+      "evidence": "evidence/pr69-custom-serial.log"
+    },
+    {
+      "name": "custom_config_pointer_lifetime",
+      "status": "PARTIAL",
+      "evidence": "report.md",
+      "reason": "HIL uses a global config; caller-owned local config lifetime remains unsafe in the PR implementation"
+    },
+    {
+      "name": "screen_photo",
+      "status": "NOT RUN",
+      "reason": "Test-slot camera unavailable"
+    }
+  ]
+}

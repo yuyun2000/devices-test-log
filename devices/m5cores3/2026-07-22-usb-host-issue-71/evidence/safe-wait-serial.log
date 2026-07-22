@@ -1,0 +1,3 @@
+ISSUE71_BOOT
+ISSUE71_BOARD_READY
+ISSUE71_SAFE_WAIT upstream_vbus_mv=5004 upstream_cdc=1 usb_output=0
