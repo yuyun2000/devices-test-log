@@ -25,6 +25,7 @@ devices-test-log/
 |           |-- patches/
 |           `-- hil/
 |-- docs/
+|   |-- hardware-test-workflow.md
 |   `-- record-format.md
 `-- templates/
     `-- hardware-test/
@@ -45,14 +46,15 @@ devices-test-log/
 
 ## 新增记录
 
-1. 复制 `templates/hardware-test/` 到对应的设备和日期目录。
-2. 在 `run.json` 中记录源码 commit、patch、硬件、固件哈希、任务 ID 和各项结果。
-3. 将未经改写的串口输出或测试中心事件摘要放入 `evidence/`。
-4. 将可直接应用的修复放入 `patches/`，并运行 `git apply --check`。
-5. 更新设备目录 README 和本文件的测试记录表。
-6. 提交前检查 UTF-8、敏感信息、相对链接和工作区状态。
+1. 先阅读 [硬件测试、归档与发布工作流](docs/hardware-test-workflow.md) 和 [记录格式](docs/record-format.md)。
+2. 复制 `templates/hardware-test/` 到对应的设备和日期目录。
+3. 在 `run.json` 中记录源码 commit、patch、硬件、固件哈希、任务 ID 和各项结果。
+4. 将未经改写的串口输出或测试中心事件摘要放入 `evidence/`。
+5. 将可直接应用的修复放入 `patches/`，并运行 `git apply --check`。
+6. 更新设备目录 README 和本文件的测试记录表。
+7. 检查 UTF-8、敏感信息、相对链接和工作区状态，再提交、推送并回读远端文件。
 
-详细规范见 [docs/record-format.md](docs/record-format.md)。
+本地 Codex 测试项目应在项目根 `AGENTS.md` 中指向上述工作流，使同一项目的新对话获得一致的归档和发布规则。
 
 ## 安全约束
 
