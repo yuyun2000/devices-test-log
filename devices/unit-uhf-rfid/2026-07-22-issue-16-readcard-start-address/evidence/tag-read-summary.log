@@ -1,0 +1,35 @@
+# Redacted ordered evidence from the real-tag follow-up run.
+# Source task: task-e8491753df0d408b (flash_only, passed)
+# Source session: ser-3acc9c2d76332e99
+# Window: 2026-07-22T07:59:03.159Z to 2026-07-22T08:01:06.643Z
+# Decoded source: 8193 bytes, 41 chunks, dropped=0, truncated=false
+# Decoded source SHA256: b787620f354b6de081f17f7662ab59852e60ab739244c765183377e479339e13
+# Privacy: the 12-byte EPC and response frames containing it are omitted.
+# No tagged cycle or address result below was reordered; unrelated no-tag retries are omitted.
+
+UHF_ISSUE16_POLL count=1
+UHF_ISSUE16_EPC value=<REDACTED_12_BYTE_EPC>
+bb00390009000000000100020002477e
+UHF_ISSUE16_READ sa=2 read_ok=0 match=0 expected=<REDACTED_4_BYTES> actual=<REDACTED_4_BYTES>
+bb00390009000000000100040002497e
+UHF_ISSUE16_READ sa=4 read_ok=0 match=0 expected=<REDACTED_4_BYTES> actual=<REDACTED_4_BYTES>
+bb003900090000000001000600024b7e
+UHF_ISSUE16_READ sa=6 read_ok=1 match=1 expected=<REDACTED_4_BYTES> actual=<SAME_AS_EXPECTED>
+
+UHF_ISSUE16_POLL count=1
+UHF_ISSUE16_EPC value=<REDACTED_12_BYTE_EPC>
+bb00390009000000000100020002477e
+UHF_ISSUE16_READ sa=2 read_ok=1 match=1 expected=<REDACTED_4_BYTES> actual=<SAME_AS_EXPECTED>
+bb00390009000000000100040002497e
+UHF_ISSUE16_READ sa=4 read_ok=0 match=0 expected=<REDACTED_4_BYTES> actual=<REDACTED_4_BYTES>
+bb003900090000000001000600024b7e
+UHF_ISSUE16_READ sa=6 read_ok=0 match=0 expected=<REDACTED_4_BYTES> actual=<REDACTED_4_BYTES>
+
+UHF_ISSUE16_POLL count=1
+UHF_ISSUE16_EPC value=<REDACTED_12_BYTE_EPC>
+bb00390009000000000100020002477e
+UHF_ISSUE16_READ sa=2 read_ok=0 match=0 expected=<REDACTED_4_BYTES> actual=<REDACTED_4_BYTES>
+bb00390009000000000100040002497e
+UHF_ISSUE16_READ sa=4 read_ok=1 match=1 expected=<REDACTED_4_BYTES> actual=<SAME_AS_EXPECTED>
+bb003900090000000001000600024b7e
+UHF_ISSUE16_READ sa=6 read_ok=1 match=1 expected=<REDACTED_4_BYTES> actual=<SAME_AS_EXPECTED>

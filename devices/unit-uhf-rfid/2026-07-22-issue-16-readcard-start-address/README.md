@@ -10,7 +10,9 @@ Tough + Unit UHF-RFID 实机任务终态为 `passed`。使用 `sa=0x1234` 时，
 bb003900090000000001123400028b7e
 ```
 
-模块返回有效的无标签错误响应 `bb01ff0001090a7e`，证明非零 SA 命令已通过真实 UART 到达模块。现场 RF 区域没有标签，因此 EPC 数据内容随地址变化的验证标为 `NOT RUN`。
+首次测试中，模块返回有效的无标签错误响应 `bb01ff0001090a7e`，证明非零 SA 命令已通过真实 UART 到达模块。随后放入真实标签复测，3 次检测到标签；EPC bank 的 word 地址 `2/4/6` 分别至少有一次读取数据与轮询 EPC 对应片段一致，真实标签地址行为标为 `PASS`。
+
+射频链路存在瞬时读失败，没有任意一轮同时完成三个地址匹配，因此严格的单轮 `UHF_ISSUE16_DATA_PASS` 验收标为 `PARTIAL`。这不影响 `sa` 已按地址生效的结论。
 
 ## 关键记录
 
@@ -20,7 +22,9 @@ bb003900090000000001123400028b7e
 - 实机：M5Stack Tough + Unit UHF-RFID
 - 实际 UART：PORT.A，RX=GPIO33，TX=GPIO32
 - 模块版本：`M100 26dBm V1.0`
-- 测试中心 task：`task-8868f076d0b54319`
+- 首次测试 task：`task-8868f076d0b54319`
+- 有标签复测 task：`task-e8491753df0d408b`
+- 有标签复测 session：`ser-3acc9c2d76332e99`
 - 固件 artifact：`fw-4229ae67dad4460c`
 - 固件 SHA256：`08ef88bf2138db80926e3b1ebb5fdabeff47503fc91c4bb6cacb8b8d0c483e53`
 
@@ -30,4 +34,5 @@ bb003900090000000001123400028b7e
 - [最小修复 patch](patches/0001-fix-readcard-start-address.patch)
 - [结构化运行记录](run.json)
 - [实机串口日志](evidence/serial.log)
+- [有标签复测证据（已脱敏）](evidence/tag-read-summary.log)
 - [HIL 复现工程](hil/)

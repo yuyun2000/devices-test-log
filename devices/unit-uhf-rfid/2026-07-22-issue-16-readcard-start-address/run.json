@@ -25,6 +25,21 @@
     "task_state": "passed",
     "serial_session_id": "ser-a4d1f7f162ba21ec"
   },
+  "follow_up_execution": {
+    "purpose": "real_tag_start_address_validation",
+    "task_id": "task-e8491753df0d408b",
+    "task_type": "flash_only",
+    "task_state": "passed",
+    "artifact_id": "fw-4229ae67dad4460c",
+    "started_at": "2026-07-22T07:59:03.159Z",
+    "finished_at": "2026-07-22T08:01:06.643Z",
+    "serial_session_id": "ser-3acc9c2d76332e99",
+    "serial_bytes": 8193,
+    "serial_chunks": 41,
+    "serial_dropped": 0,
+    "serial_text_sha256": "b787620f354b6de081f17f7662ab59852e60ab739244c765183377e479339e13",
+    "tag_epc": "redacted from public record"
+  },
   "checks": [
     {
       "name": "platformio_build",
@@ -53,8 +68,29 @@
     },
     {
       "name": "tag_data_offset_comparison",
-      "status": "NOT RUN",
-      "reason": "No UHF tag was present in the RF field"
+      "status": "PASS",
+      "evidence": "evidence/tag-read-summary.log",
+      "method": "Each EPC-bank word address matched its expected polling EPC segment at least once across three tagged cycles",
+      "addresses": {
+        "2": {
+          "matches": 1,
+          "transient_failures": 2
+        },
+        "4": {
+          "matches": 1,
+          "transient_failures": 2
+        },
+        "6": {
+          "matches": 2,
+          "transient_failures": 1
+        }
+      }
+    },
+    {
+      "name": "single_cycle_all_offsets",
+      "status": "PARTIAL",
+      "evidence": "evidence/tag-read-summary.log",
+      "reason": "No tagged cycle matched addresses 2, 4, and 6 together; UHF_ISSUE16_DATA_PASS was not emitted"
     }
   ]
 }

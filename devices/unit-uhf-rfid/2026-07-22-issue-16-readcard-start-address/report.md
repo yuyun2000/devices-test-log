@@ -3,7 +3,7 @@
 ## 结论
 
 - Issue: `readCard() ignores parameter 'sa' (start address)`
-- 状态: 已修复并完成 Tough + Unit UHF-RFID 实机协议传输验证。
+- 状态: 已修复并完成 Tough + Unit UHF-RFID 协议传输及真实标签地址行为验证；单轮三个地址同时匹配仍为 `PARTIAL`。
 - 根因: `readCard()` 复制 `READ_STORAGE_CMD` 后设置了 Access Password、MemBank 和 DL，但没有把参数 `sa` 写入命令帧的 `buffer[10]`、`buffer[11]`，因此 SA 始终保留模板值 `0x0000`。
 - 修复: 按官方协议把 `sa` 以大端顺序写入 `SA(MSB)`、`SA(LSB)`；公共 API、帧长度、响应解析均未改变。
 
@@ -63,7 +63,7 @@ M5Stack 官方《Unit UHF-RFID 常用控制指令》2.8.1 节规定：
 
 静态检查：`git diff --check` 通过。
 
-### 实机测试
+### 首次实机测试（无标签）
 
 - 测试环境: M5Stack device test center（内网地址和测试槽标识未公开）
 - 主机: M5Stack Tough / ESP32
@@ -98,11 +98,32 @@ bb01ff0001090a7e
 
 `0x09` 是官方协议定义的“标签不在场区或指定 EPC 不匹配”。这证明命令已通过真实 UART 发送到 UHF 模块并获得协议响应；测试中心成功匹配 `UHF_ISSUE16_TRANSPORT_PASS`。
 
+### 真实标签复测
+
+- 测试 task: `task-e8491753df0d408b`
+- task 类型及终态: `flash_only` / `passed`
+- 串口 session: `ser-3acc9c2d76332e99`
+- 执行时间: `2026-07-22T07:59:03.159Z` 至 `2026-07-22T08:01:06.643Z`
+- 串口数据: 8193 bytes / 41 chunks / dropped 0
+- 解码日志 SHA256: `b787620f354b6de081f17f7662ab59852e60ab739244c765183377e479339e13`
+
+完整 session 共 3 次检测到同一张真实标签。为避免在公开仓库暴露唯一标签标识，EPC 及响应中包含 EPC 的字段已脱敏；原始 session ID 和解码日志哈希保留用于内部追溯。
+
+| EPC bank word 地址 | 实际发送帧 | 匹配成功 | 瞬时失败 | 结果 |
+| --- | --- | ---: | ---: | --- |
+| `2` | `bb00390009000000000100020002477e` | 1 次 | 2 次 | PASS |
+| `4` | `bb00390009000000000100040002497e` | 1 次 | 2 次 | PASS |
+| `6` | `bb003900090000000001000600024b7e` | 2 次 | 1 次 | PASS |
+
+每个地址至少一次输出 `read_ok=1 match=1`，证明 `readCard()` 发送的非零 `sa` 会选择 EPC bank 中对应的 word 偏移并返回正确数据。若 `sa` 仍被忽略为模板值 `0x0000`，三个地址不会分别匹配轮询 EPC 的不同片段。
+
+`flash_only` 的 `passed` 只代表烧录和运行窗口完成；数据行为结论来自上述串口标记，不使用 task 终态替代应用层验收。脱敏后的有序标记见 [tag-read-summary.log](evidence/tag-read-summary.log)。
+
 ## 验证边界
 
-现场射频区域没有检测到标签，`pollingOnce()` 返回 0，因此没有执行 EPC bank 地址 `2/4/6` 的分段数据一致性验证。当前实机结果覆盖：Tough 启动、UHF UART 连通、模块版本读取、非零 SA 帧编码、校验和以及模块协议响应；不包含有标签条件下的返回数据内容比对。
+当前实机结果已覆盖：Tough 启动、UHF UART 连通、模块版本读取、非零 SA 帧编码、校验和、模块协议响应，以及真实标签在 word 地址 `2/4/6` 的数据内容匹配。
 
-补齐数据层验收只需在 Unit 天线范围内放入 EPCglobal UHF Class 1 Gen 2 / ISO 18000-6C 标签后重跑同一诊断固件。固件会读取 EPC bank 的 word 地址 `2/4/6`，分别与轮询 EPC 的三段 4 字节数据比较，并输出 `UHF_ISSUE16_DATA_PASS`。
+剩余限制是射频读取稳定性：3 次标签检测中均出现至少一个瞬时失败，没有单轮同时完成三个地址匹配，因此固件未输出 `UHF_ISSUE16_DATA_PASS`。这项单轮稳定性验收标为 `PARTIAL`；地址参数是否生效的功能验收标为 `PASS`。
 
 ## 回滚
 

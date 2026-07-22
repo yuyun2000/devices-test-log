@@ -8,7 +8,7 @@ M5Stack 硬件问题复现、修复验证和循环测试记录仓库。
 
 | 设备 | 日期 | 主题 | 结果 | 记录 |
 | --- | --- | --- | --- | --- |
-| Unit UHF-RFID | 2026-07-22 | GitHub Issue #16: `readCard()` 忽略 `sa` | PASS（协议传输）；NOT RUN（有标签数据比对） | [查看](devices/unit-uhf-rfid/2026-07-22-issue-16-readcard-start-address/) |
+| Unit UHF-RFID | 2026-07-22 | GitHub Issue #16: `readCard()` 忽略 `sa` | PASS（真实标签地址行为）；PARTIAL（单轮三地址同时匹配） | [查看](devices/unit-uhf-rfid/2026-07-22-issue-16-readcard-start-address/) |
 
 ## 目录结构
 

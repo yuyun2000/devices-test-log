@@ -11,4 +11,4 @@
 
 | 日期 | 主题 | 结果 | 链接 |
 | --- | --- | --- | --- |
-| 2026-07-22 | Issue #16: `readCard()` 忽略起始地址 `sa` | PASS（协议传输）；NOT RUN（有标签数据比对） | [查看](2026-07-22-issue-16-readcard-start-address/) |
+| 2026-07-22 | Issue #16: `readCard()` 忽略起始地址 `sa` | PASS（真实标签地址行为）；PARTIAL（单轮三地址同时匹配） | [查看](2026-07-22-issue-16-readcard-start-address/) |
