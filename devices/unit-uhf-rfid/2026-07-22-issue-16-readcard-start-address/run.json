@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "date": "2026-07-22",
+  "overall_status": "PASS",
+  "source": {
+    "issue": "https://github.com/m5stack/M5Unit-UHF-RFID/issues/16",
+    "repository": "https://github.com/m5stack/M5Unit-UHF-RFID",
+    "base_commit": "6f886a5",
+    "patch": "patches/0001-fix-readcard-start-address.patch"
+  },
+  "hardware": {
+    "host": "M5Stack Tough",
+    "device_under_test": "M5Stack Unit UHF-RFID U107 / JRD-4035",
+    "connection": "PORT.A UART RX=GPIO33 TX=GPIO32",
+    "module_version": "M100 26dBm V1.0"
+  },
+  "firmware": {
+    "artifact_id": "fw-4229ae67dad4460c",
+    "sha256": "08ef88bf2138db80926e3b1ebb5fdabeff47503fc91c4bb6cacb8b8d0c483e53",
+    "size": 523024
+  },
+  "execution": {
+    "test_center": "M5Stack device test center (internal endpoint omitted)",
+    "task_id": "task-8868f076d0b54319",
+    "task_state": "passed",
+    "serial_session_id": "ser-a4d1f7f162ba21ec"
+  },
+  "checks": [
+    {
+      "name": "platformio_build",
+      "status": "PASS",
+      "evidence": "report.md"
+    },
+    {
+      "name": "firmware_flash_and_reboot",
+      "status": "PASS",
+      "evidence": "task-8868f076d0b54319"
+    },
+    {
+      "name": "uhf_uart_transport",
+      "status": "PASS",
+      "evidence": "evidence/serial.log"
+    },
+    {
+      "name": "nonzero_start_address_frame",
+      "status": "PASS",
+      "evidence": "TX bb003900090000000001123400028b7e"
+    },
+    {
+      "name": "module_protocol_response",
+      "status": "PASS",
+      "evidence": "RX bb01ff0001090a7e"
+    },
+    {
+      "name": "tag_data_offset_comparison",
+      "status": "NOT RUN",
+      "reason": "No UHF tag was present in the RF field"
+    }
+  ]
+}

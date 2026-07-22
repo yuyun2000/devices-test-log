@@ -1,0 +1,13 @@
+# Local build outputs
+.pio/
+build/
+*.bin
+*.elf
+*.map
+
+# Temporary and editor files
+tmp/
+.DS_Store
+Thumbs.db
+*.swp
+*.tmp

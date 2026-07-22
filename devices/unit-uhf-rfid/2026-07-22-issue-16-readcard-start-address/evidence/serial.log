@@ -1,0 +1,13 @@
+UHF_ISSUE16_PROBE port=C rx=13 tx=14 version=ERROR
+UHF_ISSUE16_PROBE port=A rx=33 tx=32 version=M100 26dBm V1.0
+UHF_ISSUE16_UNIT_READY port=A rx=33 tx=32
+UHF_ISSUE16_POLL count=0
+send cmd:
+bb003900090000000001123400028b7e
+-------------------------
+result:
+bb01ff0001090a7e000000000000000000000000000000000000
+-------------------------
+UHF_ISSUE16_NO_TAG_READ sa=0x1234 read_ok=0 module_error_09=1
+UHF_ISSUE16_TRANSPORT_PASS tag_present=0
+UHF_ISSUE16_PASS

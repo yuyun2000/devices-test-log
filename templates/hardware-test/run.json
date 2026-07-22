@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "date": "YYYY-MM-DD",
+  "overall_status": "NOT RUN",
+  "source": {
+    "issue": "",
+    "repository": "",
+    "base_commit": ""
+  },
+  "hardware": {
+    "host": "",
+    "device_under_test": "",
+    "connection": ""
+  },
+  "firmware": {
+    "artifact_id": "",
+    "sha256": "",
+    "size": 0
+  },
+  "execution": {
+    "test_center": "",
+    "task_id": "",
+    "serial_session_id": ""
+  },
+  "checks": []
+}
