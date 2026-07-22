@@ -1,0 +1,50 @@
+{
+  "status": "PASS",
+  "environment": {
+    "os": "Windows",
+    "shell": "PowerShell",
+    "esp_idf": "v5.5.4",
+    "target": "esp32s3"
+  },
+  "configuration": {
+    "flash_mode": "QIO",
+    "flash_size": "16MB",
+    "cpu_frequency_mhz": 240,
+    "console": "USB Serial/JTAG"
+  },
+  "application": {
+    "size_hex": "0x52520",
+    "partition_free_percent": 68
+  },
+  "flashed_merged_image": {
+    "size": 402720,
+    "size_hex": "0x62520",
+    "sha256": "52741eed61e3e4a96340952564014dba1bb5a8e5aaa45fb80d515de78885659b",
+    "committed": false
+  },
+  "validation_rebuild": {
+    "size": 402720,
+    "size_hex": "0x62520",
+    "sha256": "1f4f838bb086aa931ad0744e56409878e1a68c580a881e015fe502a8dfe80888",
+    "byte_reproducible": false,
+    "reason": "CONFIG_APP_REPRODUCIBLE_BUILD is disabled and CONFIG_APP_COMPILE_TIME_DATE is enabled"
+  },
+  "selector_display_example": {
+    "status": "PASS",
+    "sdkconfig_defaults": "sdkconfig.bsp.m5stack_stopwatch",
+    "application_size_hex": "0x9f860",
+    "partition_free_percent": 38,
+    "resolved_bsp_selector": "1.0.2",
+    "resolved_m5stack_stopwatch": "1.0.0"
+  },
+  "resolved_dependencies": {
+    "esp_codec_dev": "1.5.11",
+    "esp_lcd_co5300": "2.1.0",
+    "esp_lcd_touch_cst816s": "1.1.1~1",
+    "button": "4.2.0",
+    "sensor_hub": "0.1.5",
+    "bmi270": "1.1.0",
+    "lvgl": "9.5.0",
+    "esp_lvgl_port": "2.8.0~1"
+  }
+}

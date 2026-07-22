@@ -1,0 +1,68 @@
+Source: Device Test Center boot10 serial read after independent reset
+Session: ser-d51e53e144acc673
+Redaction: test-slot identifier, service URL, and infrastructure metadata omitted; serial message bytes preserved with LF-normalized line endings
+Original text: 4102 bytes, 10 chunks, dropped=0, truncated=false
+Original UTF-8 text SHA256: a38d3d1194726d6a303fc882d03bfd5396892414f9777f54ea46a760c2bb86b9
+
+I (3150) stopwatch_hil: STOPWATCH_HIL_BEGIN
+I (3260) M5Stack StopWatch: Control initialized (M5IOE1 address 0x4F)
+I (3260) stopwatch_hil: HIL_CHECK name=CONTROL_INIT status=PASS
+I (3260) stopwatch_hil: HIL_CHECK name=I2C_BUS status=PASS
+I (3260) stopwatch_hil: HIL_I2C address=0x6E status=ESP_OK
+I (3260) stopwatch_hil: HIL_CHECK name=I2C_M5PM1 status=PASS
+I (3260) stopwatch_hil: HIL_I2C address=0x4F status=ESP_OK
+I (3260) stopwatch_hil: HIL_CHECK name=I2C_M5IOE1 status=PASS
+I (3260) stopwatch_hil: HIL_I2C address=0x15 status=ESP_OK
+I (3260) stopwatch_hil: HIL_CHECK name=I2C_TOUCH status=PASS
+I (3260) stopwatch_hil: HIL_I2C address=0x18 status=ESP_OK
+I (3260) stopwatch_hil: HIL_CHECK name=I2C_ES8311 status=PASS
+I (3260) stopwatch_hil: HIL_I2C address=0x32 status=ESP_OK
+I (3260) stopwatch_hil: HIL_CHECK name=I2C_RTC status=PASS
+I (3260) stopwatch_hil: HIL_I2C address=0x68 status=ESP_OK
+I (3260) stopwatch_hil: HIL_CHECK name=I2C_BMI270 status=PASS
+I (3760) stopwatch_hil: HIL_POWER battery_mv=1378 input_mv=4960 source=1
+I (3760) stopwatch_hil: HIL_CHECK name=BATTERY_VOLTAGE_READ status=PASS
+I (3760) stopwatch_hil: HIL_OBSERVATION battery_voltage_range=OUT_OF_RANGE
+I (3760) stopwatch_hil: HIL_CHECK name=INPUT_VOLTAGE status=PASS
+I (3760) stopwatch_hil: HIL_CHECK name=POWER_SOURCE status=PASS
+I (3760) button: IoT Button Version: 4.2.0
+I (3760) stopwatch_hil: HIL_CHECK name=BUTTON_HANDLES status=PASS
+I (3760) stopwatch_hil: HIL_BUTTON_IDLE a=1 b=1
+I (3760) stopwatch_hil: HIL_CHECK name=BUTTON_IDLE_LEVELS status=PASS
+I (3890) co5300: version: 2.1.0
+I (3890) co5300_spi: LCD panel create success, version: 2.1.0
+I (4070) M5Stack StopWatch: Display initialized: CO5300 QSPI, 466x466, x-gap 6
+I (4070) stopwatch_hil: HIL_CHECK name=DISPLAY_INIT status=PASS
+I (4090) co5300_spi: set brightness to 80% (hardware value: 204)
+I (4090) stopwatch_hil: HIL_CHECK name=DISPLAY_DRAW status=PASS
+I (4150) CST816S: IC id: 183
+I (4150) M5Stack StopWatch: Touch initialized: CST820B via CST816S-compatible register interface
+I (4150) stopwatch_hil: HIL_CHECK name=TOUCH_INIT status=PASS
+I (4150) stopwatch_hil: HIL_TOUCH_SAMPLE points=0 x=0 y=0
+I (4150) stopwatch_hil: HIL_CHECK name=TOUCH_READ status=PASS
+I (4150) stopwatch_hil: HIL_CHECK name=IMU_EVENT_GROUP status=PASS
+I (4510) BMI270: Successfully initialized the BMI270 sensor driver
+I (4510) SENSOR_HUB: Sensor created, Task name = SENSOR_HUB, Type = IMU, Sensor Name = sensor_hub_bmi270, Mode = MODE_POLLING, Min Delay = 100 ms
+I (4510) SENSOR_HUB: task: sensor_default_task created!
+I (4510) SENSOR_LOOP: event loop created succeed
+I (4510) SENSOR_LOOP: register a new handler to event loop succeed
+I (4510) stopwatch_hil: HIL_CHECK name=IMU_START status=PASS
+I (4610) stopwatch_hil: HIL_IMU acce=0.422,0.878,0.181 gyro=0.092,-0.214,0.122 bits=0x03
+I (4610) stopwatch_hil: HIL_CHECK name=IMU_DATA status=PASS
+I (5110) stopwatch_hil: HIL_CHECK name=VIBRATION_COMMAND status=PASS
+E (5110) I2C_If: Fail to write to dev 30
+I (5110) ES8311: Work in Slave mode
+I (5130) stopwatch_hil: HIL_CHECK name=AUDIO_CODEC status=PASS
+I (5130) I2S_IF: STD: TX, data_bit: 16, slot_bit: 16, ws_width: 16, slot_mode: MONO, slot_mask: 0x1
+I (5130) I2S_IF: STD: TX, sample_rate_hz: 44100, mclk_multiple: 256, clk_src: 6
+I (5130) I2S_IF: STD: RX, data_bit: 16, slot_bit: 16, ws_width: 16, slot_mode: MONO, slot_mask: 0x1
+I (5130) I2S_IF: STD: RX, sample_rate_hz: 44100, mclk_multiple: 256, clk_src: 6
+I (5140) Adev_Codec: Open codec device OK
+I (5140) stopwatch_hil: HIL_CHECK name=AUDIO_OPEN status=PASS
+I (5310) stopwatch_hil: HIL_AUDIO peak=31424 mean_magnitude=2309
+I (5310) stopwatch_hil: HIL_CHECK name=AUDIO_PLAYBACK_CALL status=PASS
+I (5310) stopwatch_hil: HIL_CHECK name=AUDIO_MIC_CAPTURE status=PASS
+I (5320) stopwatch_hil: HIL_CHECK name=AUDIO_CLOSE status=PASS
+I (5320) stopwatch_hil: STOPWATCH_HIL_DONE status=PASS failures=0
+I (5320) stopwatch_hil: STOPWATCH_HIL_HEARTBEAT failures=0 button_a=1 button_b=1
+I (10320) stopwatch_hil: STOPWATCH_HIL_HEARTBEAT failures=0 button_a=1 button_b=1

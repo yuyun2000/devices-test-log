@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "date": "2026-07-23",
+  "timezone": "Asia/Shanghai",
+  "overall_status": "PASS",
+  "source": {
+    "request": "Add M5Stack StopWatch support to esp-bsp and validate it on real hardware",
+    "repository": "https://github.com/espressif/esp-bsp",
+    "base_commit": "74e3cd238fdd81cda4fd03184c32f6776c41b7cd",
+    "patch": "patches/0001-add-m5stack-stopwatch-bsp.patch",
+    "patch_sha256": "1975b6e1cbfe1a1a37c47f840784fb9478d1c1cc0c7862b9bb888d3c74abce42",
+    "reference_repository": "https://github.com/m5stack/M5StopWatch-UserDemo",
+    "reference_commit": "6b4aa125288b6fe9dca661f10159f6e1e5ee785c"
+  },
+  "hardware": {
+    "host": "M5Stack Device Test Center fixture; slot identifier redacted",
+    "device_under_test": "M5Stack StopWatch (ESP32-S3)",
+    "connection": "fixture-managed USB flash/reset and 115200-baud serial; no camera"
+  },
+  "firmware": {
+    "artifact_id": "fw-154958f6e31c489d",
+    "name": "stopwatch-bsp-hil-source-mask-final.bin",
+    "sha256": "52741eed61e3e4a96340952564014dba1bb5a8e5aaa45fb80d515de78885659b",
+    "size": 402720,
+    "flash_address": 0,
+    "binary_committed": false
+  },
+  "execution": {
+    "test_center": "M5Stack Device Test Center; URL and slot identifier redacted",
+    "task_id": "task-d93c5aacd86c481e",
+    "task_type": "flash_only",
+    "task_status": "PASS",
+    "task_started_at": "2026-07-22T23:20:05.986Z",
+    "task_finished_at": "2026-07-22T23:20:17.384Z",
+    "serial_session_id": "ser-d51e53e144acc673",
+    "post_flash_session_id": "ser-46208c88355249ee",
+    "reset_command_id": "cmd-02c9fbe05bb04675"
+  },
+  "build": {
+    "status": "PASS",
+    "esp_idf": "v5.5.4",
+    "target": "esp32s3",
+    "application_size_hex": "0x52520",
+    "application_partition_free_percent": 68,
+    "merged_size_hex": "0x62520",
+    "validation_rebuild_sha256": "1f4f838bb086aa931ad0744e56409878e1a68c580a881e015fe502a8dfe80888",
+    "byte_reproducible": false,
+    "byte_reproducibility_reason": "CONFIG_APP_REPRODUCIBLE_BUILD is disabled and CONFIG_APP_COMPILE_TIME_DATE is enabled",
+    "selector_display_example_status": "PASS",
+    "selector_display_example_size_hex": "0x9f860",
+    "selector_display_example_partition_free_percent": 38
+  },
+  "checks": [
+    {
+      "layer": "build",
+      "name": "hil_rebuild_and_merge",
+      "status": "PASS"
+    },
+    {
+      "layer": "flash",
+      "name": "final_flash_task",
+      "status": "PASS",
+      "evidence": "evidence/flash-task-summary.json"
+    },
+    {
+      "layer": "transport",
+      "name": "expected_i2c_devices",
+      "status": "PASS",
+      "addresses": ["0x6E", "0x4F", "0x15", "0x18", "0x32", "0x68"]
+    },
+    {
+      "layer": "transport",
+      "name": "serial_integrity",
+      "status": "PASS",
+      "bytes": 4102,
+      "chunks": 10,
+      "dropped": 0,
+      "truncated": false
+    },
+    {
+      "layer": "device_response",
+      "name": "display_touch_imu_audio_control",
+      "status": "PASS",
+      "terminal_marker": "STOPWATCH_HIL_DONE status=PASS failures=0"
+    },
+    {
+      "layer": "data_behavior",
+      "name": "imu_and_microphone_samples",
+      "status": "PASS",
+      "audio_peak": 31424,
+      "audio_mean_magnitude": 2309
+    },
+    {
+      "layer": "data_behavior",
+      "name": "battery_voltage_stability_and_accuracy",
+      "status": "PARTIAL",
+      "reason": "The register read succeeded, but one reset-run sample was 1378 mV; no instrument reference was available."
+    },
+    {
+      "layer": "visual_or_physical",
+      "name": "display_touch_buttons_speaker_vibration",
+      "status": "PARTIAL",
+      "reason": "No camera or operator evidence was available for appearance, pressed coordinates/events, audible output, or felt vibration."
+    }
+  ]
+}

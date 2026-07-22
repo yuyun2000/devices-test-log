@@ -1,0 +1,24 @@
+{
+  "redaction": "Test-slot identifier, internal service URL, command IDs, and infrastructure paths omitted",
+  "artifact_id": "fw-154958f6e31c489d",
+  "artifact_name": "stopwatch-bsp-hil-source-mask-final.bin",
+  "firmware_sha256": "52741eed61e3e4a96340952564014dba1bb5a8e5aaa45fb80d515de78885659b",
+  "firmware_size": 402720,
+  "task_id": "task-d93c5aacd86c481e",
+  "task_type": "flash_only",
+  "state": "passed",
+  "steps": [
+    {
+      "op": "monitor_close",
+      "result": "passed"
+    },
+    {
+      "op": "flash",
+      "address": 0,
+      "reboot": true,
+      "result": "passed"
+    }
+  ],
+  "created_at": "2026-07-22T23:20:05.986Z",
+  "finished_at": "2026-07-22T23:20:17.384Z"
+}

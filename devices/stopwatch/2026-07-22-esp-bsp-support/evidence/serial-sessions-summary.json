@@ -1,0 +1,31 @@
+{
+  "redaction": "Test-slot identifier and internal service URL omitted",
+  "sessions": [
+    {
+      "purpose": "post-flash application proof",
+      "session_id": "ser-46208c88355249ee",
+      "mode": "boot10",
+      "bytes": 1231,
+      "chunks": 4,
+      "dropped": 0,
+      "truncated": false,
+      "utf8_text_sha256": "6d0484316876dcc9ae2cd0c16a587c84fddaebd5411f685b433c73bf88090cf4",
+      "terminal_marker": "STOPWATCH_HIL_DONE status=PASS failures=0",
+      "audio_peak": 30303,
+      "audio_mean_magnitude": 2278
+    },
+    {
+      "purpose": "independent reset application proof",
+      "session_id": "ser-d51e53e144acc673",
+      "mode": "boot10",
+      "bytes": 4102,
+      "chunks": 10,
+      "dropped": 0,
+      "truncated": false,
+      "utf8_text_sha256": "a38d3d1194726d6a303fc882d03bfd5396892414f9777f54ea46a760c2bb86b9",
+      "terminal_marker": "STOPWATCH_HIL_DONE status=PASS failures=0",
+      "audio_peak": 31424,
+      "audio_mean_magnitude": 2309
+    }
+  ]
+}

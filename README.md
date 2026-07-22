@@ -8,6 +8,7 @@ M5Stack 硬件问题复现、修复验证和循环测试记录仓库。
 
 | 设备 | 日期 | 主题 | 结果 | 记录 |
 | --- | --- | --- | --- | --- |
+| M5Stack StopWatch | 2026-07-22 | `esp-bsp` 原生 BSP 支持 | PASS（构建、烧录、自动化实机 HIL）；PARTIAL（物理观察） | [查看](devices/stopwatch/2026-07-22-esp-bsp-support/) |
 | Unit UHF-RFID | 2026-07-22 | GitHub Issue #16: `readCard()` 忽略 `sa` | PASS（真实标签地址行为）；PARTIAL（单轮三地址同时匹配） | [查看](devices/unit-uhf-rfid/2026-07-22-issue-16-readcard-start-address/) |
 | M5CoreS3 | 2026-07-22 | GitHub PR #69: GC0308 自定义相机配置 | PASS（默认及自定义采集）；REVIEW（配置指针生命周期） | [查看](devices/m5cores3/2026-07-22-camera-config-pr-69/) |
 | M5CoreS3 | 2026-07-22 | GitHub Issue #71: Arduino USB OTG Host | PARTIAL（上游连接保护通过；外设枚举未执行） | [查看](devices/m5cores3/2026-07-22-usb-host-issue-71/) |
